@@ -35,7 +35,11 @@
   if (!mainStatusBar || (expectVisibleBar && !mainStatusBar.fb_isVisible)) {
     return CGSizeZero;
   }
-  return mainStatusBar.frame.size;
+  CGSize result = mainStatusBar.frame.size;
+  return result.height > result.width
+    // workaround ...
+    ? CGSizeMake(result.height, result.width)
+    : result;
 }
 
 @end
