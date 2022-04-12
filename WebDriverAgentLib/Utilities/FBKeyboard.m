@@ -35,7 +35,7 @@
 {
   __block BOOL didSucceed = NO;
   __block NSError *innerError;
-  [FBRunLoopSpinner spinUntilCompletion:^(void(^completion)(void)){
+  //[FBRunLoopSpinner spinUntilCompletion:^(void(^completion)(void)){
     [[FBXCTestDaemonsProxy testRunnerProxy]
      _XCT_sendString:text
      maximumFrequency:frequency
@@ -44,10 +44,10 @@
        innerError = typingError;
        completion();
      }];
-  }];
-  if (error) {
+  //}];
+  /*if (error) {
     *error = innerError;
-  }
+  }*/
   return didSucceed;
 }
 

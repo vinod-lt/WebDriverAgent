@@ -491,11 +491,11 @@
 {
   NSString *textToType = [request.arguments[@"value"] componentsJoinedByString:@""];
   NSUInteger frequency = [request.arguments[@"frequency"] unsignedIntegerValue] ?: [FBConfiguration maxTypingFrequency];
-  if (![FBKeyboard waitUntilVisibleForApplication:request.session.activeApplication
+  /*if (![FBKeyboard waitUntilVisibleForApplication:request.session.activeApplication
                                           timeout:1
                                             error:nil]) {
     [FBLogger log:@"The on-screen keyboard seems to not exist. Continuing with typing anyway"];
-  }
+  }*/
   NSError *error;
   if (![FBKeyboard typeText:textToType frequency:frequency error:&error]) {
     return FBResponseWithStatus([FBCommandStatus invalidElementStateErrorWithMessage:error.description
