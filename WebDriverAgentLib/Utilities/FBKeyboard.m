@@ -42,7 +42,7 @@
      completion:^(NSError *typingError){
        didSucceed = (typingError == nil);
        innerError = typingError;
-       completion();
+       //completion();
      }];
   //}];
   /*if (error) {
